@@ -26,7 +26,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 
 ## Resources used
 
-1. [Faker.js](https://fakerjs.dev/).
+1. [Faker.js](https://fakerjs.dev/) Generate massive amounts of fake (but realistic) data for testing and development.
+1. [Cypress](https://docs.cypress.io/guides/component-testing/angular/overview) Cypress is a powerful tool for end-to-end (E2E) testing in web applications, including those built with Angular.
 
 ## Further help
 
