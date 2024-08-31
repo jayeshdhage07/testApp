@@ -1,5 +1,7 @@
 # TestApp
 
+Angular mock data configuration using faker.js and testing with Karma and Jasmine configuration.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.2.
 
 ## Development server
