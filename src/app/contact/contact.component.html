@@ -6,11 +6,37 @@
     <div class="row g-2 py-2">
       <div class="col" *ngFor="let user of users">
         <div class="card p-2" style="width: 18rem;">
-          <img [src]="user.avatar" alt="{{ user.name }}" class="card-img-top" />
+          <img [src]="user.avatar" alt="{{ user.name }}" class="imageFix" />
           <h4>{{ user.name }}</h4>
           <p>Email: {{ user.email }}</p>
           <p>Address: {{ user.location.street }}, {{ user.location.city }}, {{ user.location.country }}</p>
         </div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col">
+        <h4 class="mb-4">Fill free to contact us</h4>
+        <form>
+          <div class="mb-3">
+            <label for="Name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="Name" aria-describedby="NameHelp">
+          </div>
+          <div class="mb-3">
+            <label for="MobileNumber" class="form-label">Mobile Number</label>
+            <input type="number" class="form-control" id="MobileNumber" aria-describedby="MobileNumberHelp">
+            <div id="emailHelp" class="form-text">We'll never share your mobile number with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="Email" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          </div>
+          <div class="mb-3">
+            <label for="enquiryHelp" class="form-label">Enquiry in detail</label>
+            <textarea type="text" class="form-control" id="enquiryHelp" aria-describedby="enquiryHelp"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </div>
   </div>
