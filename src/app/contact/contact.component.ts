@@ -4,6 +4,7 @@ import { User } from '../model/user.model';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Enquiry } from '../model/enquiry.model';
+import { NotifyService } from '../services/notify.service';
 
 @Component({
   selector: 'app-contact',
@@ -13,7 +14,7 @@ import { Enquiry } from '../model/enquiry.model';
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent implements OnInit {
-  constructor(private mockapi:MockDataService, private fb: FormBuilder,){}
+  constructor(private mockapi:MockDataService, private fb: FormBuilder, private notifyService: NotifyService){}
 
   users: User[] = [];
   enquiryForm!: FormGroup;
@@ -54,13 +55,21 @@ export class ContactComponent implements OnInit {
       this.mockapi.submitFakeEnquiry(enquiry).then(response => {
         if (response.success) {
           console.log('Enquiry submitted successfully:', response.data);
-          alert('Enquiry submitted successfully!');
+          this.showSuccess();
           this.enquiryForm.reset();
         }
       });
     } else {
       console.log('Form is invalid');
-      alert('Enquiry "NOT" submitted successfully!');
+      this.showError();
     }
+  }
+
+  showSuccess() {
+    this.notifyService.open('success', 'Enquiry submitted successfully!', 'Success');
+  }
+
+  showError() {
+    this.notifyService.open('error', 'Enquiry "NOT" submitted successfully', 'Error');
   }
 }
