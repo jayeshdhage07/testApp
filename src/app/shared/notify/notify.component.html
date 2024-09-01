@@ -1,18 +1,20 @@
 <!-- src/app/components/notification-modal/notification-modal.component.html -->
 <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header" [ngClass]="modalClass">
-          <h5 class="modal-title" id="modalLabel">{{ title }}</h5>
-          <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
-        </div>
-        <div class="modal-body">
-          <p>{{ message }}</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
-        </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header" [ngClass]="modalClass">
+        <h5 class="modal-title" id="modalLabel">{{ title }}</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeModal()"></button>
+      </div>
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <p>{{ message }}</p>
+      </div>
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
       </div>
     </div>
   </div>
-  
+</div>

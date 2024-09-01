@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Enquiry } from '../model/enquiry.model';
 import { NotifyService } from '../services/notify.service';
+import { NotifyComponent } from "../shared/notify/notify.component";
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, NotifyComponent],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
 })
@@ -54,14 +55,14 @@ export class ContactComponent implements OnInit {
       const enquiry: Enquiry = this.enquiryForm.value;
       this.mockapi.submitFakeEnquiry(enquiry).then(response => {
         if (response.success) {
-          console.log('Enquiry submitted successfully:', response.data);
           this.showSuccess();
+          console.log('Enquiry submitted successfully:', response.data);
           this.enquiryForm.reset();
         }
       });
     } else {
-      console.log('Form is invalid');
       this.showError();
+      console.log('Form is invalid');
     }
   }
 

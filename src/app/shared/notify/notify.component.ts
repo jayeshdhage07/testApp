@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { NotifyService } from '../../services/notify.service';
 
 @Component({
   selector: 'app-notify',
@@ -14,7 +13,7 @@ export class NotifyComponent {
   @Input() message: string = '';
   @Input() title: string = '';
 
-  constructor(private notifyService: NotifyService) {}
+  constructor() {}
 
   closeModal() {
     const modalElement = document.getElementById('notificationModal');
@@ -36,19 +35,5 @@ export class NotifyComponent {
       default:
         return '';
     }
-  }
-
-  
-
-  showSuccess() {
-    this.notifyService.open('success', 'Operation completed successfully!', 'Success');
-  }
-
-  showError() {
-    this.notifyService.open('error', 'An error occurred.', 'Error');
-  }
-
-  showWarning() {
-    this.notifyService.open('warning', 'Please check your input.', 'Warning');
   }
 }
