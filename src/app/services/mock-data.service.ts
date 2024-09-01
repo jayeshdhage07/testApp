@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { faker } from '@faker-js/faker';
 import { User } from '../model/user.model';
 import { Enquiry } from '../model/enquiry.model';
+import { Product } from '../model/product.model';
 
 @Injectable({
   providedIn: 'root'
@@ -51,5 +52,23 @@ export class MockDataService {
           resolve({ success: true, data: enquiry });
         }, 1000);  // 1-second delay
       });
+    }
+
+    generateProduct(): Product { 
+      return {
+        productImage: faker.image.avatar(),
+        productName: faker.commerce.productName(),
+        productDescription: faker.commerce.productDescription(),
+        productMaterial: faker.commerce.productMaterial(),
+        productAdjective: faker.commerce.productAdjective()
+      };
+    }
+  
+    generateProducts(count: number): Product[] {
+      const products: Product[] = [];
+      for (let i = 0; i < count; i++) {
+        products.push(this.generateProduct());
+      }
+      return products;
     }
 }

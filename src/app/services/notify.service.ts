@@ -25,7 +25,6 @@ export class NotifyService {
     const domElem = (componentRef.hostView as any).rootNodes[0] as HTMLElement;
     document.body.appendChild(domElem);
 
-    console.log('Modal component injected into the DOM:', domElem);
 
     const modalElement = document.getElementById('notificationModal');
     if (modalElement) {

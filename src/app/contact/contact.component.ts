@@ -56,13 +56,11 @@ export class ContactComponent implements OnInit {
       this.mockapi.submitFakeEnquiry(enquiry).then(response => {
         if (response.success) {
           this.showSuccess();
-          console.log('Enquiry submitted successfully:', response.data);
           this.enquiryForm.reset();
         }
       });
     } else {
       this.showError();
-      console.log('Form is invalid');
     }
   }
 
