@@ -28,10 +28,8 @@ yarn-error.log
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
-/cypress/
-/cypress/e2e/
-/cypress/fixtures/
-/cypress/support/
+/cypress/screenshots/
+/cypress/cache/
 
 # Miscellaneous
 /.angular/cache
