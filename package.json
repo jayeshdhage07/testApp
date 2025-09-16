@@ -6,7 +6,11 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "e2e": "cypress open --browser chrome",
+    "e2e:run": "cypress run --browser chrome --headless",
+    "cy:open": "npm run e2e",
+    "cy:run": "npm run e2e:run"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +33,7 @@
     "@angular/compiler-cli": "^18.1.0",
     "@faker-js/faker": "^8.4.1",
     "@types/jasmine": "~5.1.0",
+    "cypress": "^15.2.0",
     "jasmine-core": "~5.1.0",
     "jasmine-spec-reporter": "^7.0.0",
     "karma": "~6.4.0",
