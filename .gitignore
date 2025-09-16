@@ -6,6 +6,7 @@
 /out-tsc
 /bazel-out
 
+
 # Node
 /node_modules
 npm-debug.log
@@ -27,6 +28,10 @@ yarn-error.log
 !.vscode/launch.json
 !.vscode/extensions.json
 .history/*
+/cypress/
+/cypress/e2e/
+/cypress/fixtures/
+/cypress/support/
 
 # Miscellaneous
 /.angular/cache
