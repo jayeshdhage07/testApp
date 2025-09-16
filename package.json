@@ -7,10 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "e2e": "cypress open --browser chrome",
-    "e2e:run": "cypress run --browser chrome --headless",
-    "cy:open": "npm run e2e",
-    "cy:run": "npm run e2e:run"
+    "ct:run": "cypress run-ct --browser chrome --headless",
+    "e2e": "start-server-and-test 'ng serve' http://localhost:4200 'cypress run --browser chrome --headless'",
+    "cy:open": "cypress open-e2e --browser chrome",
+    "coverage:report": "nyc report --reporter=html --reporter=text-summary"
   },
   "private": true,
   "dependencies": {
@@ -31,9 +31,13 @@
     "@angular-devkit/build-angular": "^18.1.2",
     "@angular/cli": "^18.1.2",
     "@angular/compiler-cli": "^18.1.0",
+    "@cypress/angular": "^4.0.0",
+    "@cypress/code-coverage": "^3.14.6",
+    "@cypress/webpack-dev-server": "^5.1.1",
     "@faker-js/faker": "^8.4.1",
     "@types/jasmine": "~5.1.0",
     "cypress": "^15.2.0",
+    "istanbul-lib-coverage": "^3.2.2",
     "jasmine-core": "~5.1.0",
     "jasmine-spec-reporter": "^7.0.0",
     "karma": "~6.4.0",
@@ -41,6 +45,9 @@
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "nyc": "^17.1.0",
+    "start-server-and-test": "^2.1.0",
+    "ts-node": "^10.9.2",
     "typescript": "~5.5.2"
   }
 }
