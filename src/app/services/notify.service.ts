@@ -19,23 +19,22 @@ export class NotifyService {
     componentRef.instance.type = type;
     componentRef.instance.message = message;
     componentRef.instance.title = title;
+    componentRef.instance.isOpen = true;
+    componentRef.changeDetectorRef.detectChanges();
 
     this.appRef.attachView(componentRef.hostView);
-
     const domElem = (componentRef.hostView as any).rootNodes[0] as HTMLElement;
     document.body.appendChild(domElem);
 
+    document.body.classList.add('modal-open');
 
-    const modalElement = document.getElementById('notificationModal');
-    if (modalElement) {
-      console.log('Modal element found:', modalElement);
-      modalElement.classList.add('show');
-      modalElement.style.display = 'block';
-      modalElement.setAttribute('aria-modal', 'true');
-      modalElement.setAttribute('role', 'dialog');
-      document.body.classList.add('modal-open');
-    } else {
-      console.error('Modal element not found!');
-    }
+    // Add method to remove modal on closeModal call inside modal component:
+    componentRef.instance.isOpenChange.subscribe((open) => {
+      if (!open) {
+        this.appRef.detachView(componentRef.hostView);
+        componentRef.destroy();
+        document.body.classList.remove('modal-open');
+      }
+    });
   }
 }

@@ -56,4 +56,9 @@
       </div>
     </div>
   </div>
-<app-notify></app-notify>
+<app-notify
+  [class.show]
+  [style.display]
+  [type]="modalType"
+  [(isOpen)]="modalIsOpen"
+></app-notify>

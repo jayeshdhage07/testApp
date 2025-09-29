@@ -4,7 +4,7 @@ import codeCoverageTask from "@cypress/code-coverage/task";
 export default defineConfig({
   // ---------------- E2E Testing ----------------
   e2e: {
-    baseUrl: "http://localhost:4200/home", // include /home if your app starts there
+    baseUrl: "http://localhost:4200", // include /home if your app starts there
     specPattern: "cypress/e2e/**/*.cy.{js,ts}", // pick all .cy files in e2e
     supportFile: "cypress/support/e2e.ts",
     setupNodeEvents(on, config) {

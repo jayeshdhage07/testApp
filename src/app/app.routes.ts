@@ -3,7 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ProductComponent } from './product/product.component';
 import { ContactComponent } from './contact/contact.component';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { PageNotFoundComponent } from './pageNotfound/pageNotFound.component';
 
 export const routes: Routes = [
     { path: '', redirectTo:'home', pathMatch:'full'},
@@ -11,5 +11,5 @@ export const routes: Routes = [
     { path: 'about', component: AboutComponent, },
     { path: 'product', component: ProductComponent, },
     { path: 'contact', component: ContactComponent, },
-    { path: '**', component: PagenotfoundComponent, }
+    { path: '**', component: PageNotFoundComponent, }
 ];

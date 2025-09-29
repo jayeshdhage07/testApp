@@ -11,6 +11,6 @@ describe('MockDataService', () => {
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    assert.isOk(service);
   });
 });

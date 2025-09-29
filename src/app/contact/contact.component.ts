@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MockDataService } from '../services/mock-data.service';
 import { User } from '../model/user.model';
 import { CommonModule } from '@angular/common';
@@ -15,13 +15,13 @@ import { NotifyComponent } from "../shared/notify/notify.component";
   styleUrl: './contact.component.scss'
 })
 export class ContactComponent implements OnInit {
-  constructor(private mockapi:MockDataService, private fb: FormBuilder, private notifyService: NotifyService){}
+  constructor(private mockDataService:MockDataService, private fb: FormBuilder, private notifyService: NotifyService){}
 
   users: User[] = [];
   enquiryForm!: FormGroup;
-  
+
   ngOnInit():void{
-   this.users = this.mockapi.generateRandomUsers(4)
+   this.users = this.mockDataService.generateRandomUsers(4)
    this.createForm();
   }
 
@@ -53,7 +53,7 @@ export class ContactComponent implements OnInit {
   submitEnquiry(): void {
     if (this.enquiryForm.valid) {
       const enquiry: Enquiry = this.enquiryForm.value;
-      this.mockapi.submitFakeEnquiry(enquiry).then(response => {
+      this.mockDataService.submitFakeEnquiry(enquiry).subscribe(response => {
         if (response.success) {
           this.showSuccess();
           this.enquiryForm.reset();
@@ -65,10 +65,17 @@ export class ContactComponent implements OnInit {
   }
 
   showSuccess() {
-    this.notifyService.open('success', 'Enquiry submitted successfully!', 'Success');
+    this.notifyService.open('success', 'Your enquiry has been received! ✅, \nWe’ll get back to you soon.', 'Success');
   }
 
   showError() {
     this.notifyService.open('error', 'Enquiry "NOT" submitted successfully', 'Error');
   }
+
+  modalIsOpen: boolean = false;
+  modalType: 'success' | 'error' | 'warning' = 'success';
+  openModal() {
+    this.modalIsOpen = true;
+  }
+
 }

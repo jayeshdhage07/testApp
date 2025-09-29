@@ -1,9 +1,14 @@
 import { bootstrapApplication } from '@angular/platform-browser';
-import { appConfig } from './app/app.config';
 import { AppComponent } from './app/app.component';
+import { appConfig } from './app/app.config';
+import { provideHttpClient } from '@angular/common/http';
 import 'zone.js';
 import 'zone.js/testing';
-import '@cypress/code-coverage/support';
 
-bootstrapApplication(AppComponent, appConfig)
-  .catch((err) => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    ...appConfig.providers,
+    provideHttpClient()
+  ]
+}).catch(err => console.error(err));
+

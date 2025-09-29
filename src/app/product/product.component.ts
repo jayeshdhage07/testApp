@@ -11,9 +11,9 @@ import { Product } from '../model/product.model';
   styleUrl: './product.component.scss'
 })
 export class ProductComponent implements OnInit {
-  constructor(private mockapi:MockDataService){}
+  constructor(private mockDataService:MockDataService){}
   products: Product[] = [];
   ngOnInit():void{
-    this.products = this.mockapi.generateProducts(10)
+    this.products = this.mockDataService.generateProducts(10)
    }
 }
